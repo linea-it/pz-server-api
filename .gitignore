@@ -111,6 +111,9 @@ env.bak/
 venv.bak/
 env.sh
 
+# db volume
+data/
+
 # Spyder project settings
 .spyderproject
 .spyproject
