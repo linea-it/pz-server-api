@@ -1,9 +1,9 @@
 FROM python:3
 
 ENV APP_HOME=/app
-ENV APP_USER=userapp 
-RUN groupadd -r $APP_USER && \
-    useradd -r -g $APP_USER -d $APP_HOME -s /sbin/nologin -c "Docker image user" $APP_USER
+# ENV APP_USER=userapp 
+# RUN groupadd -r $APP_USER && \
+#    useradd -r -g $APP_USER -d $APP_HOME -c "Docker image user" $APP_USER
 
 WORKDIR $APP_HOME
 
@@ -21,5 +21,6 @@ COPY requirements.txt $APP_HOME
 RUN pip install -r requirements.txt
 COPY . $APP_HOME
 
-RUN chown -R $APP_USER:$APP_USER $APP_HOME
-USER $APP_USER
+# RUN chown -R $APP_USER:$APP_USER $APP_HOME
+# USER $APP_USER
+

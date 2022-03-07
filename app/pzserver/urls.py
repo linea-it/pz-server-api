@@ -15,17 +15,36 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# from django import settings
 
 from rest_framework import routers
 from core.api import viewsets as products_viewsets
 
 route = routers.DefaultRouter()
 
-route.register(r'product-types', products_viewsets.ProductTypeViewSet, basename='ProductTypes')
-route.register(r'products', products_viewsets.ProductViewSet, basename='Products')
-
+route.register(
+    r"product-types",
+    products_viewsets.ProductTypeViewSet, basename="ProductTypes"
+)
+route.register(
+    r"products",
+    products_viewsets.ProductViewSet, basename="Products"
+)
+route.register(
+    r"releases",
+    products_viewsets.ReleaseViewSet, basename="Releases"
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(route.urls)),
+    path("admin/", admin.site.urls),
+    path("", include(route.urls)),
 ]
+
+# if settings.DEBUG:
+#    from django.views.static import serve
+#    from django.conf.urls.static import static
+
+#    urlpatterns += [
+#        url(r'^media/(?P<path>.*)$', serve,
+#           {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+#    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

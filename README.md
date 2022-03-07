@@ -1,6 +1,17 @@
-# pz-server-api
+# Pz Server API
+First version of Pz Server data access API for LSST
 
-# commands
-python manage.py makemigrations
-docker-compose run api python manage.py migrate
-docker-compose run api python manage.py createsuperuser
+## Requirements
+- docker
+- docker-compose
+
+## Getting Started 
+
+```bash
+docker-compose up -d
+```
+
+Open http://localhost with your browser to see the result.
+
+## License
+[MIT](LICENSE)
